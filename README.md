@@ -1,5 +1,5 @@
-# Name of your project
-Brief description of your project with image from AmIResponsive
+# Freedog
+Freedog is my submission for Milestone Project 4.
 
 ## Table Of Contents:
 1. [Design & Planning](#design-&-planning)
@@ -27,7 +27,28 @@ Brief description of your project with image from AmIResponsive
 ## Design & Planning:
 
 ### User Stories
-Write your user stories in this section
+- #### First Time Visitor Goals
+
+    1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn how to navigate to the areas I want to use.
+    2. As a First Time Visitor, I want to be able to view the facilities on offer.
+    3. As a First Time Visitor, I want to find out the opening times and pricing structure.
+    4. As a First Time Visitor, I want to register.
+    5. As a First Time Visitor, I want to book a session and pay.
+    6. As a First Time Visitor, I want to locate their social media links to see their followings on social media to determine how trusted and known they are.
+
+  - #### Returning Visitor Goals
+
+    1. As a Returning Visitor, I want to log in and view my profile.
+    2. As a Returning Visitor, I want to book a new session.
+    3. As a Returning Visitor, I want to amend/cancel a previously booked session.
+    4. As a Returning Visitor, I want to check if there are any social media updates.
+
+  - #### Frequent User Goals
+
+    1. As a Frequent User, I want to log in and view my profile.
+    2. As a Frequent User, I want to book a new session.
+    3. As a Frequent User, I want to amend/cancel a previously booked session.
+    4. As a Frequent User, I want to check if there are any social media updates.
 ### Wireframes
 Attach wireframes in this section
 ### Typography
