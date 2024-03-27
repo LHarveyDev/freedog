@@ -36,19 +36,20 @@ Freedog is my submission for Milestone Project 4.
     5. As a First Time Visitor, I want to book a session and pay.
     6. As a First Time Visitor, I want to locate their social media links to see their followings on social media to determine how trusted and known they are.
 
-  - #### Returning Visitor Goals
+- #### Returning Visitor Goals
 
     1. As a Returning Visitor, I want to log in and view my profile.
     2. As a Returning Visitor, I want to book a new session.
     3. As a Returning Visitor, I want to amend/cancel a previously booked session.
     4. As a Returning Visitor, I want to check if there are any social media updates.
 
-  - #### Frequent User Goals
+- #### Frequent User Goals
 
     1. As a Frequent User, I want to log in and view my profile.
     2. As a Frequent User, I want to book a new session.
     3. As a Frequent User, I want to amend/cancel a previously booked session.
     4. As a Frequent User, I want to check if there are any social media updates.
+
 ### Wireframes
 Attach wireframes in this section
 ### Typography
@@ -74,7 +75,7 @@ Explain your features on the website,(navigation, pages, links, forms, input fie
 1. [Bootstrap:](https://getbootstrap.com/)
    - Bootstrap was used to assist with the responsiveness and styling of the website.
 1. [JQuery:](https://releases.jquery.com/)
-   - jQuery was used in conjunction with Materialize to add interactivity.
+   - jQuery was used in conjunction with Bootstrap to add interactivity.
 1. [Hover.css:](https://ianlunn.github.io/Hover/)
    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
 1. [Google Fonts:](https://fonts.google.com/)
