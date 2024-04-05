@@ -5,8 +5,13 @@ from .models import Booking
 
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ("user", "booking_date",
-                    "booking_time", "location", "dogs",)
+    list_display = (
+        "user",
+        "booking_date",
+        "booking_time",
+        "location",
+        "dogs",
+    )
 
 
 admin.site.register(Booking, BookingAdmin)
