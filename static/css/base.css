@@ -52,7 +52,52 @@ body {
     border: 1px solid black !important;
 }
 
-/* -------------------------------- Media Queries */
+/* ------------ Bootstrap Layout -------------- */
+
+.container {
+    text-align: justify;
+    border-radius: 25px;
+    border: 2px solid black;
+    background: #ece9bc;
+    padding: 10px;
+    max-width: 95%;
+    height: auto;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.row {
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+/* ------------ Map  -------------- */
+
+.google-map {
+    padding-bottom: 60%;
+    position: relative;
+}
+
+.google-map iframe {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+/* -------------------------------- Media Queries 
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -61,8 +106,8 @@ body {
   }
 }
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+/* fixed top navbar on mobile and up */
+@media (min-width: 360px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -72,6 +117,6 @@ body {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 130px;
     }
-}
+}  
