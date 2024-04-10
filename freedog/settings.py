@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'bookings',
     'contact',
     'facilities',
+    'products',
+    'bag',
 
     # Other
     'storages',

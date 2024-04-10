@@ -66,6 +66,18 @@ body {
     margin: auto;
 }
 
+.container-home {
+    text-align: left;
+    border-radius: 25px;
+    border: 2px solid black;
+    background: #ece9bc;
+    padding: 10px;
+    max-width: 50%;
+    height: auto;
+    box-sizing: border-box;
+    margin: right;
+}
+
 .row {
     padding-top: 1%;
     padding-left: 2%;
