@@ -79,7 +79,7 @@ Explain your features on the website,(navigation, pages, links, forms, input fie
 1. [Hover.css:](https://ianlunn.github.io/Hover/)
    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
 1. [Google Fonts:](https://fonts.google.com/)
-   - Google fonts were used to import the 'Pacifico' font into the style.css file which is used for my header text.
+   - Google fonts were used to import the 'Patrick Hand SC' font into the style.css file which is used for my text throughout.
 1. [Font Awesome:](https://fontawesome.com/)
    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 1. [Favicon.io:](https://favicon.io/)
@@ -128,10 +128,36 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Once the repository was created, I clicked the green **gitpod** button to create a workspace in gitpod so that I could write the code for the site.
   
 #### Making a Local Clone
-- write steps
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/LHarveyDev/freedog)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/LHarveyDev/freedog
+```
+
+7. Press Enter. Your local clone will be created.
+
+```
+$ git clone https://github.com/LHarveyDev/freedog
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 #### Forking the Github Repository 
-- write steps
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/LHarveyDev/freedog.git)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
 
 #### Creating an app on Heroku
 - After creating the repository on GitHub, head over to [heroku](https://www.heroku.com/) and sign in.
@@ -140,7 +166,7 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 
 #### Deploying to Heroku.
 - In GitPod CLI, the root directory of the project, run: pip3 freeze --local > requirements.txt to create a requirements.txt file containing project dependencies.
-- In the Gitpod project workspace root directory, create a new file called Procfile, with capital 'P'. Open the Procfile. - Inside the file, check that web: python3 app.py has been added when creating the file Save the file.
+- In the Gitpod project workspace root directory, create a new file called Procfile, with capital 'P'. Open the Procfile. - Inside the file, check that web: gunicorn freedog.wsgi:application has been added when creating the file Save the file.
 - Push the 2 new files to the GitHub repository
 - Login to Heroku, select Create new app, add the name for your app and choose your closest region.
 - Navigate to the Deploy tab on Heroku dashboard and select Github, search for your repository and click 'connect'.
@@ -156,6 +182,10 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 
 Actual Enviroment variables not disclosed for security
 ## Credits
-List of used resources for your website (text, images, snippets of code, projects....), add links and description
-## Acknowledgment
-Mention people who helped you with your project(mentor, colleagues...)
+### Code
+### Content
+
+## Acknowledgments
+
+- My Mentor Can Sucullu for continuous helpful feedback.
+- Tutor support at Code Institute for their support.
