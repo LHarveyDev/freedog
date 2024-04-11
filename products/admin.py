@@ -3,6 +3,7 @@ from .models import Product
 
 # Register your models here.
 
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'image',
@@ -10,5 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
         'description',
         'price',
     )
+
 
 admin.site.register(Product, ProductAdmin)
