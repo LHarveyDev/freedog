@@ -3,11 +3,14 @@ html {
 }
 
 body {
-    background: url('/media/dog2.jpg') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 164px);
     font-family: "Patrick Hand SC", cursive;
     font-weight: 600;
+}
+
+.background {
+    background: url('/media/dog2.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 /* from Bulma */

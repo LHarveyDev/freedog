@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+<div class="overlay"></div>
+    <div class="header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     <div class="container-home">
         <div class="row">
-            <div class="col-6 my-auto">
+            <div class="col-12 my-auto">
                 <h1 class="display-4 logo-font text-white">
                     freedog...<br>
                     freedom to play<br>
@@ -14,7 +23,7 @@
                 </h1>
                 <div class="my-5">
                     <h4>
-                        <a href="" class="join-the-pack btn btn-lg rounded-0 text-uppercase py-3">Join The Pack</a>
+                        <a href="{% url 'bookings' %}" class="join-the-pack btn btn-lg rounded-0 text-uppercase py-3">Join The Pack</a>
                     </h4>
                 </div>
             </div>
