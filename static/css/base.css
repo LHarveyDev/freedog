@@ -13,6 +13,10 @@ body {
     background-size: cover;
 }
 
+p {
+    text-align: center;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -75,7 +79,6 @@ body {
     border: 2px solid black;
     background: #ece9bc;
     padding: 10px;
-    max-width: 50%;
     height: auto;
     box-sizing: border-box;
     margin: right;
@@ -112,16 +115,33 @@ body {
     position: absolute;
 }
 
+/* ------------ Footer -------------- */
+
+.social-networks {
+    text-align: center;
+}
+
+.social-networks li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 250%;
+    margin: 5px;
+    padding: 2%;
+    color: black;
+}
+
 /* -------------------------------- Media Queries 
 
-/* Slightly larger container on xl screens */
+/* Slightly larger container on xl screens 
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
 }
 
-/* fixed top navbar on mobile and up */
+/* fixed top navbar on mobile and up 
 @media (min-width: 360px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -130,4 +150,4 @@ body {
         left: 0;
         z-index: 1030;
     }
-}  
+} */ 

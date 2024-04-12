@@ -7,19 +7,19 @@
 
 {% block content %}
 <p>Choose which field you would like to book</p>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Large Field</h2>
-            </div>
+<div class="card-columns">
+    <div class="card">
+        <img class="card-img-top img-fluid" src="/media/field1.jpg" alt="View of field">
+        <div class="card-body text-center">
+            <h4 class="card-title">Large Field</h4>
+            <p class="card-text">3 acre field. Securely fenced.</p>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Small Field</h2>
-            </div>
+    <div class="card">
+        <img class="card-img-top img-fluid" src="/media/field2.jpg" alt="View of field">
+        <div class="card-body text-center">
+            <h4 class="card-title">Small Field</h4>
+            <p class="card-text">1 acre field with obstacles. Securely fenced.</p>
         </div>
     </div>
 {% endblock %}

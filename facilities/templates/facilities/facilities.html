@@ -6,20 +6,28 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Large Field</h2>
-            </div>
+<p>Choose which field you would like to book</p>
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <img class="card-img-top img-fluid" src="/media/field1.jpg" alt="View of field">
+        <div class="card-body">
+          <h5 class="card-title">Large Field</h5>
+          <p class="card-text">3 acre field. Securely fenced.</p>
+          <a href="{% url 'bookings' %}" class="btn btn-primary">Book Now</a>
         </div>
+      </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Small Field</h2>
-            </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <img class="card-img-top img-fluid" src="/media/field2.jpg" alt="View of field">
+        <div class="card-body">
+          <h5 class="card-title">Small Field</h5>
+          <p class="card-text">1 acre field with obstacles. Securely fenced.</p>
+          <a href="{% url 'bookings' %}" class="btn btn-primary">Book Now</a>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
+
