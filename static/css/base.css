@@ -94,13 +94,17 @@ p {
     text-align: left;
     border-radius: 25px;
     border: 2px solid black;
-    background: url('/media/field3_ytKCqVC.jpg') no-repeat center center fixed;
+    background: url('/media/dog2_crop.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
     padding: 10px;
     height: auto;
     box-sizing: border-box;
     margin: right;
+}
+
+.card {
+    background: #ece9bc;
 }
 
 .row {
