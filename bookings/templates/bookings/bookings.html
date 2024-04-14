@@ -1,25 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="overlay"></div>
-{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<p>Choose which field you would like to book</p>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Large Field</h2>
-            </div>
-        </div>
-    </div>
+{% endblock content %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h2>Small Field</h2>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+{% block scripts %}
+{% endblock scripts %}
