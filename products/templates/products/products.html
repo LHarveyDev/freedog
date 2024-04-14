@@ -21,7 +21,7 @@
                 <h4 class="card-title">£{{ product.price }}</h4>
               </div>
               <div class="col-6 col-sm-12 col-lg-6 text-right">
-                <a href="{% url 'bookings' %}" class="btn btn-dark">Book Now</a>
+                <a href="{% url 'product_detail' product.id %}" class="btn btn-dark">Book Now</a>
               </div>
             </div>
           </div>

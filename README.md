@@ -183,6 +183,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 Actual Enviroment variables not disclosed for security
 ## Credits
 ### Code
+- How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
 ### Content
 
 ## Acknowledgments

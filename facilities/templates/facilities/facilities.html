@@ -6,28 +6,43 @@
 {% endblock %}
 
 {% block content %}
-<p>Choose which field you would like to book</p>
-<div class="row">
-    <div class="col-sm-6">
+<h2>Here at freedog we put your dog first</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card-deck">
+    <div class="col-sm-12 col-lg-4">
       <div class="card">
-        <img class="card-img-top img-fluid" src="/media/field1.jpg" alt="View of field">
-        <div class="card-body">
-          <h5 class="card-title">Large Field</h5>
-          <p class="card-text">3 acre field. Securely fenced.</p>
-          <a href="{% url 'bookings' %}" class="btn btn-primary">Book Now</a>
-        </div>
+        <img class="card-img-top img-fluid" src="/media/agility2.jpg" alt="dog in fenced area">
+          <div class="card-body">
+          <h3 class="card-title">Safety</h3>
+          <p class="card-title">Both of our hire fields are enclosed by 6ft high dog-proof fencing. The fields are screened from each other to allow nervous or reactive dogs to play in peace. 
+              Our larger field can easily accomodate up to 5 dogs with ample space to run and play on a level grass surface. Each field has its own separate entrance and parking area.</p>
+          </div>
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-12 col-lg-4">
       <div class="card">
-        <img class="card-img-top img-fluid" src="/media/field2.jpg" alt="View of field">
-        <div class="card-body">
-          <h5 class="card-title">Small Field</h5>
-          <p class="card-text">1 acre field with obstacles. Securely fenced.</p>
-          <a href="{% url 'bookings' %}" class="btn btn-primary">Book Now</a>
-        </div>
+        <img class="card-img-top img-fluid" src="/media/social2.jpg" alt="three dogs interacting with each other">
+          <div class="card-body">
+          <h3 class="card-title">Fun</h3>
+          <p class="card-title">With up to 3 dogs included in each booking (and 2 more can be added for a small extra fee) freedog is a great place to meet up with friends. 
+            Enjoy a coffee from our vending machine while you watch your dog play whilst seated in our undercover seating area, perfect for those rainy days.</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+      <div class="card">
+        <img class="card-img-top img-fluid" src="/media/free3.jpg" alt="small dog jumping over log">
+          <div class="card-body">
+          <h3 class="card-title">Exercise</h3>
+          <p class="card-title">Test your dogs agility with our obstacle course keeping their minds and body active. We have a tunnel, ramp and see-saw to explore. 
+            Perfect for engaging training sessions. Alternatively allow them to run and play in our larger 3 acre field. 
+            They will soon be exhausted and happy and looking forward to their next visit.</p>
+          </div>
       </div>
     </div>
   </div>
+  </div>
+</div>
 {% endblock %}
 
