@@ -40,6 +40,11 @@ p {
     color: white;
 }
 
+.btn-block {
+    border-radius: 4px;
+    height: 30px;
+}
+
 .btn-outline-black {
     background: white;
     color: black !important; /* use important to override link colors for <a> elements */
