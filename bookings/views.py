@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Booking
 from django.contrib import messages
-# Create your views here.
+from datetime import datetime
 
 
 def index(request):
@@ -19,9 +19,10 @@ def booking(request):
             messages.error(request, "Please fill out all fields.")
             return redirect('booking')
 
-        # Check if the selected time slot is available
-        if Booking.objects.filter(day=day, time=time).exists():
-            messages.error(request, "The selected time slot is not available.")
+        # Check if the selected location is available
+        if Booking.objects.filter(
+                day=day, time=time, location=location).exists():
+            messages.error(request, "The selected field is not available.")
             return redirect('booking')
 
         # Create the booking
@@ -34,4 +35,24 @@ def booking(request):
         messages.success(request, "Booking successful!")
         return redirect('booking')
 
-    return render(request, 'bookings/bookings.html')
+    # Get all existing bookings
+    existing_bookings = Booking.objects.all()
+
+    # Extract booked days and times
+    booked_days = set(booking.day for booking in existing_bookings)
+    booked_times = set(booking.time for booking in existing_bookings)
+
+    # Get all available days and times
+    all_days = [
+        'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+        'Friday', 'Saturday', 'Sunday']
+    all_times = ['9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM']
+
+    # Exclude booked days and times from available options
+    available_days = [day for day in all_days if day not in booked_days]
+    available_times = [time for time in all_times if time not in booked_times]
+
+    return render(request, 'bookings/bookings.html', {
+        'available_days': available_days,
+        'available_times': available_times
+    })
