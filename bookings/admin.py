@@ -7,10 +7,11 @@ from .models import Booking
 class BookingAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-        "booking_date",
-        "booking_time",
+        "day",
+        "time",
         "location",
         "dogs",
+        "time_booked"
     )
 
 
