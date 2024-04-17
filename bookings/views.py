@@ -1,58 +1,114 @@
 from django.shortcuts import render, redirect
 from .models import Booking
 from django.contrib import messages
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def index(request):
-    return render(request, "index.html", {})
+    return render(request, "home/index.html")
 
 
 def booking(request):
+    weekdays = validWeekday(22)
+
+    validateWeekdays = isWeekdayValid(weekdays)
+
     if request.method == 'POST':
         location = request.POST.get('location')
         day = request.POST.get('day')
-        time = request.POST.get('time')
 
-        # Check if location, day, and time are selected
-        if not (location and day and time):
-            messages.error(request, "Please fill out all fields.")
+        if location is None:
+            messages.success(request, "Please Select a Field")
             return redirect('booking')
 
-        # Check if the selected location is available
-        if Booking.objects.filter(
-                day=day, time=time, location=location).exists():
-            messages.error(request, "The selected field is not available.")
-            return redirect('booking')
-
-        # Create the booking
-        Booking.objects.create(
-            location=location,
-            day=day,
-            time=time,
-        )
-
-        messages.success(request, "Booking successful!")
-        return redirect('booking')
-
-    # Get all existing bookings
-    existing_bookings = Booking.objects.all()
-
-    # Extract booked days and times
-    booked_days = set(booking.day for booking in existing_bookings)
-    booked_times = set(booking.time for booking in existing_bookings)
-
-    # Get all available days and times
-    all_days = [
-        'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-        'Friday', 'Saturday', 'Sunday']
-    all_times = ['9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM']
-
-    # Exclude booked days and times from available options
-    available_days = [day for day in all_days if day not in booked_days]
-    available_times = [time for time in all_times if time not in booked_times]
+        request.session['day'] = day
+        request.session['location'] = location
+        return redirect('bookingSubmit')
 
     return render(request, 'bookings/bookings.html', {
-        'available_days': available_days,
-        'available_times': available_times
+            'weekdays': weekdays,
+            'validateWeekdays': validateWeekdays,
+        })
+
+
+def bookingSubmit(request):
+    user = request.user
+    times = [
+        '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM'
+    ]
+    today = datetime.now()
+    minDate = today.strftime('%Y-%m-%d')
+    deltatime = today + timedelta(days=21)
+    strdeltatime = deltatime.strftime('%Y-%m-%d')
+    maxDate = strdeltatime
+
+    day = request.session.get('day')
+    location = request.session.get('location')
+
+    hour = checkTime(times, day)
+    if request.method == 'POST':
+        time = request.POST.get("time")
+        date = dayToWeekday(day)
+
+        if location is not None:
+            if day <= maxDate and day >= minDate:
+                if date == 'Monday' or date == 'Saturday' or date == 'Wednesday':
+                    if Booking.objects.filter(day=day).count() < 11:
+                        if Booking.objects.filter(day=day, time=time).count() < 1:
+                            BookingForm = Booking.objects.create(
+                                user=user,
+                                location=location,
+                                day=day,
+                                time=time,
+                            )
+                            messages.success(request, "Booking Saved!")
+                            return redirect('index')
+                        else:
+                            messages.success(request, "The selected time is not available")
+                    else:
+                        messages.success(request, "The selected day is not available")
+                else:
+                    messages.success(request, "The selected date Is incorrect")
+            else:
+                messages.success(request, "The selected date isn't in the correct time period!")
+        else:
+            messages.success(request, "Please select a Field")
+
+    return render(request, 'bookings/bookingSubmit.html', {
+        'times': hour,
     })
+
+
+def dayToWeekday(x):
+    z = datetime.strptime(x, "%Y-%m-%d")
+    y = z.strftime('%A')
+    return y
+
+
+def validWeekday(days):
+    # Loop days you want in the next 21 days:
+    today = datetime.now()
+    weekdays = []
+    for i in range(0, days):
+        x = today + timedelta(days=i)
+        y = x.strftime('%A')
+        if y == 'Monday' or y == 'Saturday' or y == 'Wednesday':
+            weekdays.append(x.strftime('%Y-%m-%d'))
+    return weekdays
+
+
+def isWeekdayValid(x):
+    validateWeekdays = []
+    for j in x:
+        if Booking.objects.filter(day=j).count() < 10:
+            validateWeekdays.append(j)
+    return validateWeekdays
+
+
+def checkTime(times, day):
+    # Only show the time of the day that has not been selected before:
+    x = []
+    for k in times:
+        if Booking.objects.filter(day=day, time=k).count() < 1:
+            x.append(k)
+    return x

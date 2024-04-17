@@ -13,39 +13,43 @@
             <h4>Please select whether you would like to book our large 3 acre field or the small 1 acre field with obstacles. Check out our <a href="{% url 'facilities' %}">Facilities</a> page if you are unsure.</h4>
             <h3>Select Field:</h3>
             <select class="form-select fs-3" name="location" required>
-                <option value="Large field">Large field</option>
-                <option value="Small field">Small field</option>
+                <option value="Large field">Large field £10</option>
+                <option value="Small field">Small field £6.50</option>
             </select>
         </div>
         <!--input date-->
         <div class="mt-3">
             <h4>Please select the date you would like to book from the calendar.</h4>
             <h3>Select Date:</h3>
-            <input type="date" class="form-control" name="day" required>
+            <select class="form-select fs-3" name="day" required>
+                {% for validateWeekday in validateWeekdays %}
+                <option value="{{validateWeekday}}">{{validateWeekday}}</option>
+                {% endfor %}
+            </select>
         </div>
-        <!--input time-->
+        <!--input time
         <div class="mt-3">
             <h4>Please select the timeslot you would like to book. 
                 All slots are 45 minutes in duration which allows for you to clean up after your dog and depart before the next booking arrives. 
                 Available slots are shown below.</h4>
-            <h3 class="">Select Timeslot:</h3>
-            <select class="form-select fs-3" name="time" required>
-                {% for available_time in available_times %}
-                <option value="{{ available_time }}">{{ available_time }}</option>
+            <h3>Select Timeslot:</h3>
+            <select class="form-select fs-3 text-center" name="time">
+                {% for time in times %}
+                <option value="{{time}}">{{time}}</option>
                 {% endfor %}
             </select>
-        </div>
+        </div> -->
         <!--input number of dogs-->
         <div class="mt-3">
             <h4>Please select the number of dogs you will be bringing. 
                 Up to three dogs are included in the price but you can also add a further two dogs for a small additional charge of £2 per dog.</h4>
             <h3>Number of Dogs:</h3>
             <select class="form-select fs-3" name="dogs" required>
-                <option value="One">One</option>
-                <option value="Two">Two</option>
-                <option value="Three">Three</option>
-                <option value="Four">Four</option>
-                <option value="Five">Five</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
         </div>
         <div>

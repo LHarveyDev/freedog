@@ -7,7 +7,6 @@ LOCATION_CHOICES = (
     ("Large field", "Large field"),
     ("Small field", "Small field"),
     )
-
 TIME_CHOICES = (
     ("9 AM", "9 AM"),
     ("10 AM", "10 AM"),
@@ -16,7 +15,7 @@ TIME_CHOICES = (
     ("1 PM", "1 PM"),
     ("2 PM", "2 PM"),
     ("3 PM", "3 PM"),
-    )
+)
 
 
 class Booking(models.Model):
@@ -24,10 +23,10 @@ class Booking(models.Model):
         User, on_delete=models.CASCADE, null=True, blank=True)
     location = models.CharField(
         max_length=20, choices=LOCATION_CHOICES, default="Large field")
-    dogs = models.IntegerField(default=1)
     day = models.DateField(default=datetime.now)
     time = models.CharField(
         max_length=10, choices=TIME_CHOICES, default="9 AM")
+    dogs = models.IntegerField(default=1)
     time_booked = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
