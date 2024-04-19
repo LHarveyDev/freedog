@@ -144,6 +144,12 @@ p {
     position: absolute;
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    text-align: center;
+}
+
 /* ------------ Footer -------------- */
 
 .social-networks {

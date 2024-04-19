@@ -27,18 +27,6 @@
                 {% endfor %}
             </select>
         </div>
-        <!--input time
-        <div class="mt-3">
-            <h4>Please select the timeslot you would like to book. 
-                All slots are 45 minutes in duration which allows for you to clean up after your dog and depart before the next booking arrives. 
-                Available slots are shown below.</h4>
-            <h3>Select Timeslot:</h3>
-            <select class="form-select fs-3 text-center" name="time">
-                {% for time in times %}
-                <option value="{{time}}">{{time}}</option>
-                {% endfor %}
-            </select>
-        </div> -->
         <!--input number of dogs-->
         <div class="mt-3">
             <h4>Please select the number of dogs you will be bringing. 
@@ -52,11 +40,13 @@
                 <option value="5">5</option>
             </select>
         </div>
+
         <div>
             <br>
             <!--Submit booking-->
-            <button type="submit" class="btn btn-dark">Continue to Payment</button>
+            <button type="submit" class="btn btn-dark">Select Timeslot</button>
         </div>
+
     </form>
 </div>
 

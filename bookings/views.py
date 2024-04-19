@@ -9,7 +9,7 @@ def index(request):
 
 
 def booking(request):
-    weekdays = validWeekday(22)
+    weekdays = validWeekday(31)
 
     validateWeekdays = isWeekdayValid(weekdays)
 
@@ -38,7 +38,7 @@ def bookingSubmit(request):
     ]
     today = datetime.now()
     minDate = today.strftime('%Y-%m-%d')
-    deltatime = today + timedelta(days=21)
+    deltatime = today + timedelta(days=31)
     strdeltatime = deltatime.strftime('%Y-%m-%d')
     maxDate = strdeltatime
 
@@ -52,7 +52,7 @@ def bookingSubmit(request):
 
         if location is not None:
             if day <= maxDate and day >= minDate:
-                if date == 'Monday' or date == 'Saturday' or date == 'Wednesday':
+                if date == 'Wednesday' or date == 'Thursday' or date == 'Friday' or date == 'Saturday' or date == 'Sunday':
                     if Booking.objects.filter(day=day).count() < 11:
                         if Booking.objects.filter(day=day, time=time).count() < 1:
                             BookingForm = Booking.objects.create(
@@ -92,7 +92,7 @@ def validWeekday(days):
     for i in range(0, days):
         x = today + timedelta(days=i)
         y = x.strftime('%A')
-        if y == 'Monday' or y == 'Saturday' or y == 'Wednesday':
+        if y == 'Wednesday' or y == 'Thursday' or y == 'Friday' or y == 'Saturday' or y == 'Sunday':
             weekdays.append(x.strftime('%Y-%m-%d'))
     return weekdays
 
