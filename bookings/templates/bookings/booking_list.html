@@ -1,0 +1,16 @@
+<!-- booking_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Booking Details</h1>
+    {% if current_booking %}
+        <p>Location: {{ current_booking.location }}</p>
+        <p>Day: {{ current_booking.day }}</p>
+        <p>Time: {{ current_booking.time }}</p>
+        <p>Dogs: {{ current_booking.dogs }}</p>
+    {% else %}
+        <p>No current booking found.</p>
+    {% endif %}
+    
+{% endblock %}

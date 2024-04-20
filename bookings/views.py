@@ -118,3 +118,14 @@ def checkTime(times, day):
         if Booking.objects.filter(day=day, time=k).count() < 1:
             x.append(k)
     return x
+
+
+def booking_list(request):
+    current_booking = None
+    if request.user.is_authenticated:
+        latest_booking = Booking.objects.filter(user=request.user).order_by('-time_booked').first()
+        if latest_booking:
+            current_booking = latest_booking
+
+    return render(request, 'bookings/booking_list.html', {'current_booking': current_booking})
+

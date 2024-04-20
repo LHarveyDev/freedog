@@ -53,7 +53,7 @@ Freedog is my submission for Milestone Project 4.
 ### Wireframes
 Attach wireframes in this section
 ### Typography
-Explain font you've used for your project
+The font I have used for the majority of my site is Patrick Hand SC from [Google Fonts](https://fonts.google.com/specimen/Patrick+Hand+SC). I choose this font because it has an informal, handwritten style whilst still being easy to read.
 ### Colour Scheme
 Screenshoot of the colour scheme for your project
 ### DataBase Diagram
@@ -184,6 +184,7 @@ Actual Enviroment variables not disclosed for security
 ## Credits
 ### Code
 - How to make card images the same size as each other [Stack Overflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width)
+- Resetting db in Django by Farheen Shahid[Scaler.com](https://www.scaler.com/topics/django/resetting-db-in-django/)
 ### Content
 
 ## Acknowledgments
