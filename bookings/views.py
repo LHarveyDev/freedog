@@ -64,17 +64,23 @@ def bookingSubmit(request):
                             messages.success(request, "Your Booking has been Saved!")
                             return redirect('index')
                         else:
-                            messages.success(request, "The selected date/time is not available")
+                            messages.success(
+                                request, "The selected date is unavailable")
                     else:
-                        messages.success(request, "The selected day is not available")
+                        messages.success(
+                            request, "The selected day is not available")
                 else:
-                    messages.success(request, "The selected date is not available")
+                    messages.success(
+                        request, "The selected date is not available")
             else:
-                messages.success(request, "The selected date isn't in the correct time period!")
+                messages.success(
+                    request, "Selected date not in the correct time period")
         else:
-            messages.success(request, "Please select a Field")
+            messages.success(
+                request, "Please select a Field")
 
-    return render(request, 'bookings/bookingSubmit.html', {
+    return render(
+        request, 'bookings/bookingSubmit.html', {
         'times': hour,
     })
 
