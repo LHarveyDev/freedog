@@ -61,14 +61,14 @@ def bookingSubmit(request):
                                 day=day,
                                 time=time,
                             )
-                            messages.success(request, "Booking Saved!")
+                            messages.success(request, "Your Booking has been Saved!")
                             return redirect('index')
                         else:
-                            messages.success(request, "The selected time is not available")
+                            messages.success(request, "The selected date/time is not available")
                     else:
                         messages.success(request, "The selected day is not available")
                 else:
-                    messages.success(request, "The selected date Is incorrect")
+                    messages.success(request, "The selected date is not available")
             else:
                 messages.success(request, "The selected date isn't in the correct time period!")
         else:
@@ -86,7 +86,7 @@ def dayToWeekday(x):
 
 
 def validWeekday(days):
-    # Loop days you want in the next 21 days:
+    # Loop days you want in the next 31 days:
     today = datetime.now()
     weekdays = []
     for i in range(0, days):
