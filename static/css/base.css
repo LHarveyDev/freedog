@@ -94,7 +94,7 @@ p {
     text-align: left;
     border-radius: 25px;
     border: 2px solid black;
-    background: url('/media/dog2_crop.jpg') no-repeat center center fixed;
+    background: url('/media/dog2_crop.jpg') no-repeat center center;
     background-size: cover;
     overflow: hidden;
     padding: 10px;
