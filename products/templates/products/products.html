@@ -16,15 +16,17 @@
           <div class="card-body">
             <h3 class="card-title">{{ product.name }}</h3>
             <p class="card-title">{{ product.description }}</p>
-            <div class="row">
-              <div class="col-6 col-sm-12 col-lg-6">
-                <h4 class="card-title">£{{ product.price }}</h4>
+            <h4 class="card-title">£{{ product.price }}</h4>
+            <form class="form" action="{% url 'booking' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-12">
+                  <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                </div>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
               </div>
-              <div class="col-6 col-sm-12 col-lg-6 text-right">
-                <a href="{% url 'booking' %}" class="btn btn-dark">Book Now</a>
-              </div>
-            </div>
-          </div>
+            </form>
+        </div>
       </div>
     </div>
     {% endfor %}
