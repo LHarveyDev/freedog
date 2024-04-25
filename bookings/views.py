@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Booking
 from django.contrib import messages
 from datetime import datetime, timedelta
+from decimal import Decimal
 
 
 def index(request):
@@ -14,16 +15,23 @@ def booking(request):
     validateWeekdays = isWeekdayValid(weekdays)
 
     if request.method == 'POST':
-        location = request.POST.get('location')
+        location_price = request.POST.get('location')  # Modified variable name to reflect both location and price
         day = request.POST.get('day')
         dogs = request.POST.get('dogs')
 
-        if location is None:
+        if location_price is None:
             messages.success(request, "Please Select a Field")
             return redirect('booking')
 
+        # Split the location and price from the combined field
+        location, price_str = location_price.split(':')
+        # Extract the location and price and remove any leading or trailing whitespace
+        location = location.strip()
+        price = Decimal(price_str.strip())
+
         request.session['day'] = day
         request.session['location'] = location
+        request.session['price'] = str(price)  # Convert Decimal price to string
         request.session['dogs'] = dogs
         return redirect('bookingSubmit')
 
@@ -45,7 +53,8 @@ def bookingSubmit(request):
     maxDate = strdeltatime
 
     day = request.session.get('day')
-    location = request.session.get('location')
+    location = request.session.get('location')  # Get location separately
+    price = request.session.get('price')  # Get price separately
     dogs = request.session.get('dogs')
 
     hour = checkTime(location, times, day)
@@ -58,13 +67,18 @@ def bookingSubmit(request):
                 if date == 'Wednesday' or date == 'Thursday' or date == 'Friday' or date == 'Saturday' or date == 'Sunday':
                     if Booking.objects.filter(day=day).count() < 11:
                         if Booking.objects.filter(location=location, day=day, dogs=dogs, time=time).count() < 1:
-                            BookingForm = Booking.objects.create(
+                            booking = Booking.objects.create(
                                 user=user,
                                 location=location,
                                 day=day,
                                 dogs=dogs,
                                 time=time,
+                                price=price,  # Include the price when creating the booking
                             )
+
+                            # Store the booking ID in the session
+                            request.session['booking_id'] = booking.id
+
                             messages.success(request, "Your Booking has been Saved!")
                             return redirect('index')
                         else:

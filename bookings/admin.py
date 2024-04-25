@@ -1,15 +1,14 @@
 from django.contrib import admin
 from .models import Booking
 
-# Register your models here.
-
 
 class BookingAdmin(admin.ModelAdmin):
     list_display = (
         "user",
         "day",
         "time",
-        "location",
+        "location",  # Display the location field
+        "price",  # Display the price field
         "dogs",
         "time_booked"
     )

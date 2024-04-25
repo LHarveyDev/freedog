@@ -1,21 +1,25 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
-from bag.contexts import bag_contents
+from bookings.models import Booking  # Import Booking model
 
 import stripe
-
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    bag = request.session.get('bag', {})
-    current_bag = bag_contents(request)
-    total = current_bag['grand_total']
-    stripe_total = round(total * 100)
+    # Fetch booking information from the database
+    booking_id = request.session.get('booking_id')
+    if booking_id:
+        booking = Booking.objects.get(pk=booking_id)
+    else:
+        messages.error(request, "No booking found.")
+        return redirect(reverse('index'))  # Redirect to index page if no booking found
+
+    # Prepare data for Stripe payment
+    stripe_total = int(booking.price * 100)  # Convert price to cents for Stripe
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
@@ -30,6 +34,7 @@ def checkout(request):
 
     template = 'checkout/checkout.html'
     context = {
+        'booking': booking,  # Pass booking object to template
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,

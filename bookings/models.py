@@ -21,8 +21,8 @@ TIME_CHOICES = (
 class Booking(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
-    location = models.CharField(
-        max_length=20, choices=LOCATION_CHOICES, default="Large field")
+    location = models.CharField(max_length=20)  # Remove choices here
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=0)  # Add price field
     day = models.DateField(default=datetime.now)
     time = models.CharField(
         max_length=10, choices=TIME_CHOICES, default="9 AM")
@@ -31,3 +31,11 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.user.username} | day: {self.day} | time: {self.time}"
+
+    def save(self, *args, **kwargs):
+        # Override save method to update price based on location
+        if "Large field" in self.location:
+            self.price = 10
+        elif "Small field" in self.location:
+            self.price = 6.50
+        super().save(*args, **kwargs)

@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from products.models import Product
 
+
 def bag_contents(request):
     bag = request.session.get('bag', {})
     bag_items = []
